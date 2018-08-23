@@ -6,16 +6,19 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 find_package(ZLIB REQUIRED)
-find_package(fakemodule REQUIRED)
+find_package(SFML 2 COMPONENTS system window graphics REQUIRED)
+#find_package(fakemodule REQUIRED)
 
 add_library(testapi 	testlib/src/testapi.cpp)
 
 target_include_directories(testapi PUBLIC
 		"$<BUILD_INTERFACE:${ZLIB_INCLUDE_DIRS}>" 
+                "$<BUILD_INTERFACE:${SFML_INCLUDE_DIR}>"
 		)
 
 target_link_libraries(testapi PUBLIC 
                 ${ZLIB_LIBRARIES}
+                ${SFML_LIBRARIES}
                 )
 
 if(NOT MSVC)
