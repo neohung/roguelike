@@ -25,6 +25,8 @@ endif()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake_modules")
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-rpath=/usr/local/lib")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-rpath=/usr/local/lib")
 
 find_package(ZLIB REQUIRED)
 find_package(SFML 2 COMPONENTS system window graphics REQUIRED)
