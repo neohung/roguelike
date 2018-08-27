@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 2.8)
 project("test")
 
 if(NOT WIN32)
@@ -29,6 +29,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED on)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wl,-rpath=/usr/local/lib")
 
 find_package(ZLIB REQUIRED)
+find_package (Boost REQUIRED COMPONENTS serialization system)
+#find_package (Boost 1.54.0 REQUIRED COMPONENTS system filesystem)
 find_package(SFML 2 COMPONENTS system window graphics REQUIRED)
 #find_package(fakemodule REQUIRED)
 
@@ -65,5 +67,10 @@ install(FILES ${TEST_HEADERS}
         DESTINATION "~/temp/test/include/testapi"
        )
 MESSAGE(STATUS "${Green} ${SFML_LIBRARIES} ${CleanColor}")
+MESSAGE(STATUS "${Green} ${Boost_LIBRARIES} ${CleanColor}")
 add_executable(ex1 examples/ex1.cpp)
-target_link_libraries(ex1 testapi )
+include_directories( ${Boost_INCLUDE_DIR})
+target_link_libraries(ex1 
+                      testapi 
+                      ${Boost_LIBRARIES}
+                     )
