@@ -70,6 +70,7 @@ MESSAGE(STATUS "${Green} ${SFML_LIBRARIES} ${CleanColor}")
 MESSAGE(STATUS "${Green} ${Boost_LIBRARIES} ${CleanColor}")
 add_executable(ex1 examples/ex1.cpp)
 include_directories( ${Boost_INCLUDE_DIR})
+include_directories( cereal/inc )
 target_link_libraries(ex1 
                       testapi 
                       ${Boost_LIBRARIES}
