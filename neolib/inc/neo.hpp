@@ -5,6 +5,8 @@
 
 namespace neo
 {
+  enum Flags { DEFAULT = 1 };
+
   template <class T>
   class StaticObject
   {
