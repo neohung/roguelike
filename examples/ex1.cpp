@@ -17,8 +17,11 @@
 */
 #include <string>      // for string
 #include <stdexcept>   // for runtime_error
+#include <neo.hpp> 
 int main(void)
 {
+  
+#if 0
   sf::Texture* tex = new sf::Texture();
   if (!tex->loadFromFile("../assets/terminal32x32.png"))
     throw std::runtime_error("Unable to load texture");
@@ -142,6 +145,7 @@ int main(void)
       window.display();
 
   }
+#endif
   return 0;
 }
 #if 0
